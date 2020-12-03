@@ -80,7 +80,7 @@ class Wkhtmltopdf(object):
         return decorator if condition else lambda x: x
 
 
-    @_maybe_decorate(use_celery, celery.task())
+    @_maybe_decorate(use_celery, celery.Task())
     def render_template_to_pdf(self, template_name_or_list, save=False, download=False, wkhtmltopdf_args=None, **context):
         '''Renders a template from the template folder with the given
         context and produces a pdf. As this can be resource intensive, the function
